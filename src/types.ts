@@ -5,3 +5,23 @@ export type User ={
     city:string
     country:string
 }
+export type categoryItem = {
+    _id: string;
+    name: string;
+    price: number;
+  };
+
+export type Rent = {
+    _id: string;
+    user: string;
+    rentName: string;
+    city: string;
+    country: string;
+    deliveryPrice: number;
+    estimatedDeliveryTime: number;
+    machines: string[];
+    categoryItems: categoryItem[];
+    imageUrl: string;
+    lastUpdated: string;
+  };
+ 
