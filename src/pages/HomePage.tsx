@@ -10,7 +10,7 @@ const HomePage = () => {
 
         <div className="bg-white rounded-lg shadow-md py-8 flex flex-col gap-5 text-center -mt-16">
            <h1 className="text-5xl font-bold tracking-tigth text-green-600" > Machines for your choice</h1>
-           <span className="text-xl" >Renting out is our thing</span>
+           <span className="text-xl" >make your order today and you will never regret</span>
         </div>
          
          <div className="grid md:grid-cols-2 gap-5">
