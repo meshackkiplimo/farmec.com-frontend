@@ -76,7 +76,9 @@ const ManageRentForm = ({onSave,isLoading}: Props) => {
 
 
         })
+        if(formDataJson.imageFile) {
         formData.append(`imageFile`,formDataJson.imageFile)
+        }
 
         onSave(formData)
 
