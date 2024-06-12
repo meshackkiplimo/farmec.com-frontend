@@ -9,6 +9,8 @@ import CategorySection from "./CategorySection"
 import ImageSection from "./ImageSection"
 import LoadingButton from "@/components/LoadingButton"
 import { Button } from "@/components/ui/button"
+import { Rent } from "@/types"
+import { useEffect } from "react"
 
 
 const formSchema = z.object({
@@ -42,11 +44,12 @@ const formSchema = z.object({
 })
  type RentFormData =z.infer<typeof formSchema>
 type Props = {
+    rent?: Rent;
   onSave: (rentFormData:FormData)=> void
   isLoading: boolean
 }
 
-const ManageRentForm = ({onSave,isLoading}: Props) => {
+const ManageRentForm = ({onSave,isLoading,rent}: Props) => {
     const form = useForm<RentFormData>({
         resolver: zodResolver(formSchema),
         defaultValues:{
@@ -55,6 +58,26 @@ const ManageRentForm = ({onSave,isLoading}: Props) => {
         },
 
     });
+    useEffect(() => {
+        if (!rent) {
+            return;
+        }
+
+        const deliveryPriceFormatted = parseInt(
+            (rent.deliveryPrice/100).toFixed(2)
+        )
+        const categoryItemsFormatted = rent.categoryItems.map((item)=>({
+            ...item,
+            price:parseInt((item.price/100).toFixed(2))
+        }))
+        const updatedRent = {
+            ...rent,
+            deliveryPrice:deliveryPriceFormatted,
+            categoryItems:categoryItemsFormatted,
+        }
+        form.reset(updatedRent)
+        
+    }, [form,rent])
    
     
     const onSubmit =(formDataJson: RentFormData) =>{
@@ -76,12 +99,11 @@ const ManageRentForm = ({onSave,isLoading}: Props) => {
 
 
         })
-        if(formDataJson.imageFile) {
+        if(formDataJson.imageFile){
         formData.append(`imageFile`,formDataJson.imageFile)
         }
-
         onSave(formData)
-
+        
     }
     return(
         <Form {...form}>
