@@ -1,14 +1,17 @@
 import { useCreateMyRent, useGetMyRent } from "@/api/MyRentApi";
 import ManageRentForm from "@/forms/manage-rent-form/ManageRentForm";
+import { useUpdateMyRent } from './../api/MyRentApi';
 
 const ManageRentPage = () => {
-  const {createRent,isLoading} = useCreateMyRent()
+  const {createRent,isLoading:isCreateLoading} = useCreateMyRent()
   const {rent} = useGetMyRent()
+  const {updateRent,isLoading:isUpdateLoading} = useUpdateMyRent()
+  const isEditing  = !!rent
   return(
     <ManageRentForm 
      rent={rent}
-     onSave={createRent}
-       isLoading={isLoading}
+     onSave={isEditing ? updateRent:createRent}
+       isLoading={isCreateLoading || isUpdateLoading}
       />
   )
 }

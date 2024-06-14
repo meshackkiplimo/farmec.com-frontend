@@ -5,26 +5,28 @@ import { toast } from "sonner"
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
 
-export const useGetMyRent = () =>{
-  const {getAccessTokenSilently} = useAuth0()
+export const useGetMyRent = () => {
+  const { getAccessTokenSilently } = useAuth0()
+
+  
   const getMyRentRequest = async (): Promise<Rent> => {
     const accessToken = await getAccessTokenSilently()
-    const response = await fetch(`${API_BASE_URL}/api/my/rent`,{
-      method:"GET",
-      headers:{
-        Authorization:`Bearer ${accessToken}`
-      }
+    const response = await fetch (`${API_BASE_URL}/api/my/rent`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
     })
-    if (!response.ok){
-      throw new Error("failed to get rent")
-  }
-  return response.json()
-    
-  }
-  const {data:rent,isLoading} = useQuery("fetchMyRent",getMyRentRequest)
-  
 
-  return{rent,isLoading}
+    if (!response.ok) {
+      throw new Error("Failed to get rent")
+    }
+    return response.json()
+  }
+
+  const { data: rent, isLoading } = useQuery<Rent>("fetchMyRent", getMyRentRequest)
+
+  return { rent, isLoading }
 }
 
 export const useCreateMyRent = () => {
@@ -57,4 +59,36 @@ export const useCreateMyRent = () => {
         toast.error("Unable to update rent");
       }
       return{createRent,isLoading}
+    }
+    export const useUpdateMyRent = () =>{
+        const {getAccessTokenSilently} = useAuth0()
+        const updateRentRequest = async (rentFormData:FormData):Promise<Rent> =>{
+          const accessToken = await getAccessTokenSilently()
+
+          const response = await fetch(`${API_BASE_URL}/api/my/rent`,{
+            method:"PUT",
+            headers:{
+              'Authorization':`Bearer ${accessToken}`
+            },
+            body:rentFormData,
+
+
+          })
+          if (!response){
+            throw new Error("Failed to update rent")
+
+          }
+          return response.json()
+
+
+        }
+        const {mutate:updateRent,isLoading,error,isSuccess} =useMutation(updateRentRequest)
+        if(isSuccess){
+          toast.success("Rent updated successfully")
+        }
+        if(error){
+          toast.error("unable to update rent")
+        }
+        return{updateRent,isLoading}
+
     }
