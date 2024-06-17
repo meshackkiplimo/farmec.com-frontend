@@ -24,4 +24,12 @@ export type Rent = {
     imageUrl: string;
     lastUpdated: string;
   };
+  export type RentSearchResponse = {
+    data: Rent[];
+    pagination: {
+      total: number;
+      page: number;
+      pages: number;
+    };
+  };
  
