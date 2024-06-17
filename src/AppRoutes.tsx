@@ -7,6 +7,7 @@ import ProtectedRoute from "./auth/ProtectedRoute";
 import ManageRentPage from "./pages/ManageRentPage";
 import ServicesPage from "./pages/ServicesPage";
 import AboutPage from "./pages/AboutPage";
+import SearchPage from './pages/SearchPage';
 
 const AppRoutes = () => {
     return (
@@ -15,6 +16,12 @@ const AppRoutes = () => {
             <Route path="/" element={<Layout showHero><HomePage /></Layout>} />
 
             <Route path="/auth-callback" element={<AuthCallbackPage />} />
+            <Route path= "/search/:city" element={
+                <Layout showHero={false}>
+                <SearchPage />
+            </Layout>
+            } 
+            />
             <Route path="/services" element={<Layout showHero><ServicesPage /></Layout>} />
             <Route path="/about" element={<Layout showHero><AboutPage /></Layout>} />
             <Route element={<ProtectedRoute />}>
