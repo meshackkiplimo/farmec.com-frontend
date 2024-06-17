@@ -30,7 +30,7 @@ const HomePage = () => {
           <img src={landingImage} />
           <div className="flex flex-col items-center justify-center gap-4 text-center" >
 
-            <span className="font-bold text-3xl tracking-tighter">Order your favorite machine</span>
+            <span className="font-bold text-3xl tracking-tighter">Book your favorite machine anytime</span>
             <span>Dowload ther farmech app for faster booking and tracking system</span>
             <img src={appDownloadImage} />
           </div>
