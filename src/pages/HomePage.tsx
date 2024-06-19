@@ -31,7 +31,7 @@ const HomePage = () => {
           <div className="flex flex-col items-center justify-center gap-4 text-center" >
 
             <span className="font-bold text-3xl tracking-tighter">Book your favorite machine anytime</span>
-            <span>Dowload ther farmech app for faster booking and tracking system</span>
+            <span>We have a variety of machines that suites all farmers</span>
             <img src={appDownloadImage} />
           </div>
 
