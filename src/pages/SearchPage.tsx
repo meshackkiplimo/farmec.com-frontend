@@ -1,14 +1,17 @@
 import { useSearchRents } from "@/api/RentApi";
+import MachineFilter from "@/components/MachineFilter";
 import PaginationSelector from "@/components/PaginationSelector";
 import SearchBar, { SearchForm } from "@/components/SearchBar";
 import SearchResultCard from "@/components/SearchResultCard";
 import SearchResultInfor from "@/components/SearchResultInfor";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+// import { SearchState } from '@/pages/SearchPage';
 
 export type SearchState = {
   searchQuery: string;
   page:number;
+  selectedMachines: string[];
 
 }
 
@@ -17,8 +20,17 @@ const SearchPage = () => {
   const [searchState,setSearchState] = useState<SearchState>({
     searchQuery:  "",
     page:1,
+    selectedMachines:[],
   })
+  const [isExpanded,setIsExpanded] = useState<boolean>(false)
   const {results, isLoading} = useSearchRents(searchState,city)
+  const setSelectedMachines = (selectedMachines:string[]) =>{
+    setSearchState((prevState)=>({
+      ...prevState,
+      selectedMachines,
+      page:1
+    }))
+  }
 
   const setPage = (page:number) =>{
     setSearchState((prevState)=>({
@@ -63,8 +75,14 @@ const SearchPage = () => {
   return(
   <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] ">
 
-    <div id="machines-list" >find your machines hear:)
-
+    <div id="machines-list" >
+      <MachineFilter 
+        selectedMachines={searchState.selectedMachines}
+        onChange={setSelectedMachines}
+        isExpanded={isExpanded}
+        onExpandedClick={()=>setIsExpanded((prevIsExpanded)=> !prevIsExpanded)}
+      
+      />
     </div>
     <div id="main-content" className="flex flex-col gap-5">
       <SearchBar 
