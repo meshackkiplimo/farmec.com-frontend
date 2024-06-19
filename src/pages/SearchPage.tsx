@@ -4,6 +4,7 @@ import PaginationSelector from "@/components/PaginationSelector";
 import SearchBar, { SearchForm } from "@/components/SearchBar";
 import SearchResultCard from "@/components/SearchResultCard";
 import SearchResultInfor from "@/components/SearchResultInfor";
+import SortOptionDropdown from "@/components/SortOptionDropdown";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 // import { SearchState } from '@/pages/SearchPage';
@@ -12,6 +13,7 @@ export type SearchState = {
   searchQuery: string;
   page:number;
   selectedMachines: string[];
+  sortOption:string
 
 }
 
@@ -21,9 +23,23 @@ const SearchPage = () => {
     searchQuery:  "",
     page:1,
     selectedMachines:[],
+    sortOption:"bestMatch",
   })
   const [isExpanded,setIsExpanded] = useState<boolean>(false)
   const {results, isLoading} = useSearchRents(searchState,city)
+
+  const setSortOption = (sortOption:string) =>{
+    setSearchState((prevState)=>({
+
+      ...prevState,
+      sortOption,
+      page:1,
+    }))
+
+  }
+
+
+
   const setSelectedMachines = (selectedMachines:string[]) =>{
     setSearchState((prevState)=>({
       ...prevState,
@@ -92,8 +108,12 @@ const SearchPage = () => {
       onReset = {resetSearch}
       
       />
+      <div className="flex justify-between flex-col gap-3 lg:flex-row">
+      <SearchResultInfor total={results.pagination.total} city={city} />
+      <SortOptionDropdown sortOption={searchState.sortOption} onChange={(value)=>setSortOption(value)} />
+      </div>
 
-        <SearchResultInfor total={results.pagination.total} city={city} />
+        
         {results.data.map((rent)=>(
         <SearchResultCard rent={rent} />
         ))}
