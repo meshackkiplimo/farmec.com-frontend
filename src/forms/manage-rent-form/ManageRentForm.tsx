@@ -101,7 +101,7 @@ const ManageRentForm = ({onSave,isLoading,rent}: Props) => {
         })
         formDataJson.categoryItems.forEach((categoryItem,index)=>{
             formData.append(`categoryItems[${index}][name]`,categoryItem.name)
-            formData.append(`categoryItems[${index}][name]`,(categoryItem.price*100).toString())
+            formData.append(`categoryItems[${index}][price]`,(categoryItem.price*100).toString())
 
 
         })
