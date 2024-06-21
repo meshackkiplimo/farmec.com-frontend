@@ -53,6 +53,16 @@ const DetailPage = () => {
 
   }
 
+
+  const removeFromCart = (cartItem:CartItem) =>{
+    setCartItems((prevCartItems) => {
+      const updatedCartItems = prevCartItems.filter((item) => cartItem._id !== item._id)
+
+      return updatedCartItems;
+    })
+
+  }
+
   
   if(isLoading || !rent){
     return "Loading ..."
@@ -87,7 +97,7 @@ const DetailPage = () => {
             <div>
 
               <Card>
-                <OrderSummary rent={rent} cartItems={cartItems} />
+                <OrderSummary rent={rent} cartItems={cartItems} removeFromCart={removeFromCart} />
 
                 
               </Card>
