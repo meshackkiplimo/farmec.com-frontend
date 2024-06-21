@@ -5,7 +5,7 @@ export type User ={
     city:string
     country:string
 }
-export type categoryItem = {
+export type CategoryItem = {
     _id: string;
     name: string;
     price: number;
@@ -20,7 +20,7 @@ export type Rent = {
     deliveryPrice: number;
     estimatedDeliveryTime: number;
     machines: string[];
-    categoryItems: categoryItem[];
+    categoryItems: CategoryItem[];
     imageUrl: string;
     lastUpdated: string;
   };
