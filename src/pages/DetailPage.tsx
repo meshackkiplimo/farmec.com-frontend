@@ -3,11 +3,12 @@ import CategoryItem from "@/components/CategoryItem";
 import OrderSummary from "@/components/OrderSummary";
 
 import RentInfo from "@/components/RentInfo";
-import { Card } from "@/components/ui/card";
+import { Card, CardFooter } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { CategoryItem as CategoryItemType } from "../types";
+import CheckoutButton from "@/components/CheckoutButton";
 
 
 export type CartItem = {
@@ -22,7 +23,10 @@ export type CartItem = {
 const DetailPage = () => {
   const {rentId} = useParams()
   const {rent,isLoading} = useGetRent(rentId)
-  const [cartItems,setCartItems]= useState<CartItem[]>([]);
+  const [cartItems,setCartItems]= useState<CartItem[]>(()=> {
+    const storedCartItems = sessionStorage.getItem(`cartItems-${rentId}`);
+    return storedCartItems ? JSON.parse(storedCartItems) : [] ;
+  });
   const addToCart = (categoryItem: CategoryItemType) => {
     setCartItems((prevCartItems) => {
      
@@ -47,6 +51,10 @@ const DetailPage = () => {
 
       }
 
+      sessionStorage.setItem(
+        `cartItems-${rentId}`,
+        JSON.stringify(updatedCartItems))
+
            return updatedCartItems
 
     })
@@ -57,6 +65,12 @@ const DetailPage = () => {
   const removeFromCart = (cartItem:CartItem) =>{
     setCartItems((prevCartItems) => {
       const updatedCartItems = prevCartItems.filter((item) => cartItem._id !== item._id)
+      sessionStorage.setItem(
+        `cartItems-${rentId}`,
+        JSON.stringify(updatedCartItems))
+
+
+      
 
       return updatedCartItems;
     })
@@ -98,6 +112,10 @@ const DetailPage = () => {
 
               <Card>
                 <OrderSummary rent={rent} cartItems={cartItems} removeFromCart={removeFromCart} />
+
+                <CardFooter>
+                  <CheckoutButton   />
+                </CardFooter>
 
                 
               </Card>
