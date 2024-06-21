@@ -3,7 +3,7 @@ import MachineFilter from "@/components/MachineFilter";
 import PaginationSelector from "@/components/PaginationSelector";
 import SearchBar, { SearchForm } from "@/components/SearchBar";
 import SearchResultCard from "@/components/SearchResultCard";
-import SearchResultInfor from "@/components/SearchResultInfor";
+import SearchResultInfo from "@/components/SearchResultInfo";
 import SortOptionDropdown from "@/components/SortOptionDropdown";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
@@ -109,7 +109,7 @@ const SearchPage = () => {
       
       />
       <div className="flex justify-between flex-col gap-3 lg:flex-row">
-      <SearchResultInfor total={results.pagination.total} city={city} />
+      <SearchResultInfo total={results.pagination.total} city={city} />
       <SortOptionDropdown sortOption={searchState.sortOption} onChange={(value)=>setSortOption(value)} />
       </div>
 

@@ -8,6 +8,7 @@ import ManageRentPage from "./pages/ManageRentPage";
 import ServicesPage from "./pages/ServicesPage";
 import AboutPage from "./pages/AboutPage";
 import SearchPage from './pages/SearchPage';
+import DetailPage from "./pages/DetailPage";
 
 const AppRoutes = () => {
     return (
@@ -19,6 +20,12 @@ const AppRoutes = () => {
             <Route path= "/search/:city" element={
                 <Layout showHero={false}>
                 <SearchPage />
+            </Layout>
+            } 
+            />
+            <Route path= "/detail/:rentId" element={
+                <Layout showHero={false}>
+                <DetailPage />
             </Layout>
             } 
             />
