@@ -1,4 +1,6 @@
 import { useGetRent } from "@/api/RentApi";
+import CategoryItem from "@/components/CategoryItem";
+
 import RentInfo from "@/components/RentInfo";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import { useParams } from "react-router-dom";
