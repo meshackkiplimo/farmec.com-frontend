@@ -3,13 +3,15 @@ import { Rent } from "@/types";
 import { CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Separator } from "@radix-ui/react-separator";
+import { Trash } from "lucide-react";
 
 type Props = {
   rent: Rent;
   cartItems: CartItem[];
+  removeFromCart:(cartItem:CartItem) =>void
 };
 
-const OrderSummary = ({ rent, cartItems }: Props) => {
+const OrderSummary = ({ rent, cartItems,removeFromCart }: Props) => {
   const getTotalCost = () => {
     const totalInPence = cartItems.reduce(
       (total, cartItem) => total + cartItem.price * cartItem.quantity,
@@ -38,7 +40,12 @@ const OrderSummary = ({ rent, cartItems }: Props) => {
               {item.name}
             </span>
             <span className="flex items-center gap-1">
-              ${(item.price * item.quantity / 100).toFixed(2)}
+                <Trash  
+                className="cursor-pointer" 
+                color="red"  size={20} 
+                onClick={()=>removeFromCart(item)} 
+                 />
+              ${((item.price * item.quantity) / 100).toFixed(2)}
             </span>
           </div>
         ))}
