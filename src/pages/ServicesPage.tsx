@@ -1,6 +1,5 @@
 
 const ServicesPage = () => {
-  // Sample data for services
   const services = [
     { title: 'Service 1', description: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups 1', },
     { title: 'Service 2', description: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups 2', },
@@ -30,3 +29,4 @@ const ServicesPage = () => {
 }
 
 export default ServicesPage;
+
