@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { CategoryItem as CategoryItemType } from "../types";
 import CheckoutButton from "@/components/CheckoutButton";
+import { UserFormData } from '@/forms/user-profile-form/UserProfileForm';
 
 
 export type CartItem = {
@@ -76,6 +77,10 @@ const DetailPage = () => {
     })
 
   }
+  const onCheckout = (userFormData: UserFormData) =>{
+    console.log("userFormData",userFormData)
+
+  }
 
   
   if(isLoading || !rent){
@@ -114,7 +119,7 @@ const DetailPage = () => {
                 <OrderSummary rent={rent} cartItems={cartItems} removeFromCart={removeFromCart} />
 
                 <CardFooter>
-                  <CheckoutButton   />
+                  <CheckoutButton   disabled={cartItems.length === 0} onCheckout={onCheckout} />
                 </CardFooter>
 
                 
