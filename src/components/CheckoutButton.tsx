@@ -58,7 +58,12 @@ if(isAuthLoading || !currentUser){
         <UserProfileForm 
         currentUser={currentUser} 
         onSave={onCheckout} 
-        isLoading={isGetUserLoading} />
+        isLoading={isGetUserLoading}
+        title="confirm delivery details"
+        buttonText="continue to payment"
+
+        
+        />
         
       </DialogContent>
     </Dialog>
