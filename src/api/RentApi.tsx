@@ -7,9 +7,9 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
 export const useGetRent = (rentId?:  string) =>{
     const getRentByIdRequest = async ():  Promise<Rent> =>{
 
-        const response = await fetch(`&{API_BASE_URL}/api/rent/${rentId}`)
+        const response = await fetch(`${API_BASE_URL}/api/rent/${rentId}`);
         if (!response.ok){
-            throw new Error("failed to get rent")
+            throw new Error("Failed to get rent")
     }
     return response.json()
 
