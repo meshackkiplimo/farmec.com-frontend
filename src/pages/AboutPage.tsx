@@ -1,5 +1,19 @@
+import { useState } from "react";
+import { sendContactUsRequest } from '../api/ContactUs'
 
 const AboutPage = () => {
+  const [contactUsDetails, setContactUsDetails] = useState({})
+  const handleSubmit = (e: { preventDefault: () => void; }) => {
+    e.preventDefault()
+    sendContactUsRequest(contactUsDetails)
+  }
+
+  const handleChange = (e: { [x: string]: any; }) => {
+    const { name, value } = e.target;
+    setContactUsDetails((prev: any) => ({ ...prev, [name]: value }))
+    e.preventDefault()
+  }
+
   return (
     <div className=" py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,7 +27,7 @@ const AboutPage = () => {
 
         <section className="bg-white rounded-lg shadow-md p-8 mb-8">
           <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
-          <form className="bg-gray-200 rounded-lg shadow-md px-8 py-6 mb-6">
+          <form onSubmit={handleSubmit} className="bg-gray-200 rounded-lg shadow-md px-8 py-6 mb-6">
             <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
                 Name
@@ -21,8 +35,10 @@ const AboutPage = () => {
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="name"
+                name="name"
                 type="text"
                 placeholder="Enter your name"
+                onChange={handleChange}
               />
             </div>
             <div className="mb-4">
@@ -34,6 +50,8 @@ const AboutPage = () => {
                 id="email"
                 type="email"
                 placeholder="Enter your email"
+                onChange={handleChange}
+                name="email"
               />
             </div>
             <div className="mb-6">
@@ -45,18 +63,20 @@ const AboutPage = () => {
                 id="message"
                 rows={4}
                 placeholder="Enter your message"
+                onChange={handleChange}
+                name="message"
               ></textarea>
             </div>
             <div className="flex justify-center">
               <button
                 className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
                 type="button"
+                onClick={handleSubmit}
               >
                 Send Message
               </button>
             </div>
           </form>
-
           <div className="text-center text-gray-600">
             <p>Or reach out via email at:</p>
             <p className="font-bold">contact@example.com</p>
