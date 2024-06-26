@@ -5,7 +5,7 @@ import { toast } from "sonner";
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 type CheckoutSessionRequest = {
     cartItems: {
-      menuItemId: string;
+      categoryItemId: string;
       name: string;
       quantity: string;
     }[];
@@ -26,8 +26,7 @@ export const useCreateCheckoutSession = () => {
     ) => {
       const accessToken = await getAccessTokenSilently();
   
-      const response = await fetch(
-        `${API_BASE_URL}/api/order/checkout/create-checkout-session`,
+      const response = await fetch(`${API_BASE_URL}/api/order/checkout/create-checkout-session`,
         {
           method: "POST",
           headers: {
@@ -37,6 +36,8 @@ export const useCreateCheckoutSession = () => {
           body: JSON.stringify(checkoutSessionRequest),
         }
       );
+      console.log('Request URL:', `${API_BASE_URL}/api/order/checkout/create-checkout-session`);
+        console.log('Request Body:', checkoutSessionRequest);
   
       if (!response.ok) {
         throw new Error("Unable to create checkout session");
