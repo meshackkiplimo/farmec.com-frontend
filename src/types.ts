@@ -24,6 +24,37 @@ export type Rent = {
     imageUrl: string;
     lastUpdated: string;
   };
+
+
+  export type OrderStatus =
+  | "placed"
+  | "paid"
+  | "inProgress"
+  | "outForDelivery"
+  | "delivered";
+
+  
+export type Order = {
+  _id: string;
+  rent: Rent;
+  user: User;
+  cartItems: {
+    categoryItemId: string;
+    name: string;
+    quantity: string;
+  }[];
+  deliveryDetails: {
+    name: string;
+    addressLine1: string;
+    city: string;
+    email: string;
+  };
+  totalAmount: number;
+  status: OrderStatus;
+  createdAt: string;
+  rentId: string;
+};
+
   export type RentSearchResponse = {
     data: Rent[];
     pagination: {

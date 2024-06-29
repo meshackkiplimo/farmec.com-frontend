@@ -1,4 +1,4 @@
-import { Rent } from "@/types"
+import { Order, Rent } from "@/types"
 import { useAuth0 } from "@auth0/auth0-react"
 import { useMutation, useQuery } from "react-query"
 import { toast } from "sonner"
@@ -92,3 +92,81 @@ export const useCreateMyRent = () => {
         return{updateRent,isLoading}
 
     }
+    export const useGetMyRentOrders = () => {
+      const { getAccessTokenSilently } = useAuth0();
+    
+      const getMyRentOrdersRequest = async (): Promise<Order[]> => {
+        const accessToken = await getAccessTokenSilently();
+    
+        const response = await fetch(`${API_BASE_URL}/api/my/rent/order`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            "Content-Type": "application/json",
+          },
+        });
+    
+        if (!response.ok) {
+          throw new Error("Failed to fetch orders");
+        }
+    
+        return response.json();
+      };
+    
+      const { data: orders, isLoading } = useQuery(
+        "fetchMyRentOrders",
+        getMyRentOrdersRequest
+      );
+    
+      return { orders, isLoading };
+    };
+
+    type UpdateOrderStatusRequest = {
+      orderId: string;
+      status: string;
+    };
+    export const useUpdateMyRentOrder = () => {
+      const { getAccessTokenSilently } = useAuth0();
+    
+      const updateMyRentOrder = async (
+        updateStatusOrderRequest: UpdateOrderStatusRequest
+      ) => {
+        const accessToken = await getAccessTokenSilently();
+    
+        const response = await fetch(
+          `${API_BASE_URL}/api/my/rent/order/${updateStatusOrderRequest.orderId}/status`,
+          {
+            method: "PATCH",
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ status: updateStatusOrderRequest.status }),
+          }
+        );
+    
+        if (!response.ok) {
+          throw new Error("Failed to update status");
+        }
+    
+        return response.json();
+      };
+    
+      const {
+        mutateAsync: updateRentStatus,
+        isLoading,
+        isError,
+        isSuccess,
+        reset,
+      } = useMutation(updateMyRentOrder);
+    
+      if (isSuccess) {
+        toast.success("Order updated");
+      }
+    
+      if (isError) {
+        toast.error("Unable to update order");
+        reset();
+      }
+    
+      return { updateRentStatus, isLoading };
+    };
