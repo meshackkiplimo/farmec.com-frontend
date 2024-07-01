@@ -66,7 +66,7 @@ export const useCreateMyRent = () => {
           const accessToken = await getAccessTokenSilently()
 
           const response = await fetch(`${API_BASE_URL}/api/my/rent`,{
-            method:"PUT",
+            method:"POST",
             headers:{
               'Authorization':`Bearer ${accessToken}`
             },

@@ -1,8 +1,10 @@
-import { useCreateMyRent, useGetMyRent, useGetMyRentOrders } from "@/api/MyRentApi";
-import ManageRentForm from "@/forms/manage-rent-form/ManageRentForm";
-import { useUpdateMyRent } from './../api/MyRentApi';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useCreateMyRent, useGetMyRent, useGetMyRentOrders,useUpdateMyRent } from "@/api/MyRentApi";
 import OrderItemCard from "@/components/OrderItemCard";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+
+import ManageRentForm from "@/forms/manage-rent-form/ManageRentForm";
+
 
 const ManageRentPage = () => {
   const {createRent,isLoading:isCreateLoading} = useCreateMyRent()
@@ -28,7 +30,7 @@ const ManageRentPage = () => {
         <OrderItemCard order={order} />
       ))}
     </TabsContent>
-    <TabsContent value="manage-restaurant">
+    <TabsContent value="manage-rent">
       <ManageRentForm
         rent={rent}
         onSave={isEditing ? updateRent : createRent}

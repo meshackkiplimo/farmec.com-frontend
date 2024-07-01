@@ -49,7 +49,7 @@ type CheckoutSessionRequest = {
     rentId: string;
   };
 
-export const useCreateCheckoutSession = () => {
+  export const useCreateCheckoutSession = () => {
     const { getAccessTokenSilently } = useAuth0();
   
     const createCheckoutSessionRequest = async (
@@ -57,7 +57,8 @@ export const useCreateCheckoutSession = () => {
     ) => {
       const accessToken = await getAccessTokenSilently();
   
-      const response = await fetch(`${API_BASE_URL}/api/order/checkout/create-checkout-session`,
+      const response = await fetch(
+        `${API_BASE_URL}/api/order/checkout/create-checkout-session`,
         {
           method: "POST",
           headers: {
@@ -67,8 +68,6 @@ export const useCreateCheckoutSession = () => {
           body: JSON.stringify(checkoutSessionRequest),
         }
       );
-      console.log('Request URL:', `${API_BASE_URL}/api/order/checkout/create-checkout-session`);
-        console.log('Request Body:', checkoutSessionRequest);
   
       if (!response.ok) {
         throw new Error("Unable to create checkout session");
@@ -92,6 +91,5 @@ export const useCreateCheckoutSession = () => {
     return {
       createCheckoutSession,
       isLoading,
-    }
-
-}
+    };
+  };

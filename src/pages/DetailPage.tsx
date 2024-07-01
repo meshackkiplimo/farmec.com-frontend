@@ -127,7 +127,7 @@ const DetailPage = () => {
 
                 <RentInfo rent={rent} />
                 
-                <span  className="text-2xl font-bold tracking-tight" >Menu</span>
+                <span  className="text-2xl font-bold tracking-tight" >Category</span>
                 {rent.categoryItems.map((categoryItem)=>(
                     <CategoryItem  categoryItem={categoryItem}   addToCart ={()=>addToCart(categoryItem) } />
 
@@ -142,7 +142,10 @@ const DetailPage = () => {
                 <OrderSummary rent={rent} cartItems={cartItems} removeFromCart={removeFromCart} />
 
                 <CardFooter>
-                  <CheckoutButton   disabled={cartItems.length === 0} onCheckout={onCheckout} isLoading={isCheckoutLoading} />
+                  <CheckoutButton  
+                   disabled={cartItems.length === 0} 
+                   onCheckout={onCheckout} 
+                   isLoading={isCheckoutLoading} />
                 </CardFooter>
 
                 

@@ -14,10 +14,10 @@ import { useEffect } from "react"
 
 
 const formSchema = z.object({
-    rentName:z.string().min(1,"name is required"),
-    // rentName:z.string({
-    // //     required_error: "Name is required",
-    // }),
+    rentName:z.string({
+        required_error:"rent name is required",
+    }),
+    
     city:z.string({
         required_error: "city is required",
     }),
@@ -42,7 +42,8 @@ const formSchema = z.object({
     })),
     imageUrl:z.string().optional(),
     imageFile:z.instanceof(File,{message:"image is required"}).optional(),
-}).refine((data)=>data.imageUrl || data.imageFile, {
+})
+.refine((data)=>data.imageUrl || data.imageFile, {
 
     message: "please select an image",
     path: [ "imageFile"],
