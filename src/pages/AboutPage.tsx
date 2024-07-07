@@ -20,8 +20,7 @@ const AboutPage = () => {
         <section className="bg-white rounded-lg shadow-md p-8 mb-8">
           <h1 className="text-4xl font-bold text-center mb-4">About Us</h1>
           <p className="text-lg text-gray-700 leading-relaxed mb-6 text-center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate
-            eu pharetra nec, mattis ac neque.
+            This is Farmec Enterprises we provide platform to enable farmmers to be able to rent their tools at their own ease
           </p>
         </section>
 
@@ -79,7 +78,7 @@ const AboutPage = () => {
           </form>
           <div className="text-center text-gray-600">
             <p>Or reach out via email at:</p>
-            <p className="font-bold">contact@example.com</p>
+            <p className="font-bold">meshackkimaiyo5@gmil.com.com</p>
           </div>
         </section>
 
@@ -88,23 +87,22 @@ const AboutPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="text-gray-700">
               <p className="mb-2">
-                <span className="font-bold">Address:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
+                <span className="font-bold">Address:</span> Thika </p>
               <p className="mb-2">
-                <span className="font-bold">Phone:</span> +1 (123) 456-7890
+                <span className="font-bold">Phone:</span> +254 (27) 463-152
               </p>
             </div>
             <div className="text-gray-700">
               <p className="mb-2">
                 <span className="font-bold">Social Media:</span>
                 <a href="#" className="ml-2 text-indigo-500 hover:text-indigo-700" target="_blank" rel="noopener noreferrer">
-                  Facebook
+                  Facebook:farmec enterprises
                 </a>
                 <a href="#" className="ml-2 text-indigo-500 hover:text-indigo-700" target="_blank" rel="noopener noreferrer">
-                  Twitter
+                  Twitter:@farmec
                 </a>
                 <a href="#" className="ml-2 text-indigo-500 hover:text-indigo-700" target="_blank" rel="noopener noreferrer">
-                  Instagram
+                  Instagram:farmec
                 </a>
               </p>
             </div>
@@ -115,14 +113,11 @@ const AboutPage = () => {
           <h2 className="text-3xl font-bold mb-4">Mission & Vision</h2>
           <div className="text-gray-700">
             <p className="mb-4">
-              <span className="font-bold">Our Mission:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate
-              eu pharetra nec, mattis ac neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate
-              eu pharetra nec, mattis ac neque.
+              <span className="font-bold">Our Mission:</span> 
+              Our mission is to enrich farmers with quality machines to enable them to acquire for a certain amount of days and pay a certain amount
             </p>
             <p className="mb-4">
-              <span className="font-bold">Our Vision:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate
-              eu pharetra nec, mattis ac neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate
-              eu pharetra nec, mattis ac neque.
+              <span className="font-bold">Our Vision:</span> To be able to deliver to farmers machines to ther destination 
             </p>
           </div>
         </section>

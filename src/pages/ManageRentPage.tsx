@@ -28,7 +28,7 @@ const ManageRentPage = () => {
         <OrderItemCard order={order} />
       ))}
     </TabsContent>
-    <TabsContent value="manage-restaurant">
+    <TabsContent value="manage-rent">
       <ManageRentForm
         rent={rent}
         onSave={isEditing ? updateRent : createRent}

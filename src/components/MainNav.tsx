@@ -3,16 +3,25 @@ import { Button } from "./ui/button";
 import UsernameMenu from "./UsernameMenu";
 import { Link } from "react-router-dom";
 
+
 const MainNav = () => {
   const { loginWithRedirect, isAuthenticated } = useAuth0();
 
   return (
-    <span className="flex space-x-2 items-center">
+    <span className="flex space-x-4 items-center ">
       {isAuthenticated ? (
         <>
+        <Link to="/services" className="font-bold hover:text-green-500">
+            Services
+          </Link>
+          <Link to="/about" className="font-bold hover:text-green-500">
+            About Us
+          </Link>
+
           <Link to="/order-status" className="font-bold hover:text-green-500">
             Order Status
           </Link>
+          
           <UsernameMenu />
         </>
       ) : (

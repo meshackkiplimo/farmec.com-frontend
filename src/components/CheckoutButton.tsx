@@ -46,11 +46,9 @@ if(isAuthLoading || !currentUser || isLoading){
    return(
     <Dialog>
       <DialogTrigger  asChild>
-     <Button disabled={disabled} className="bg-green-500 flex-1">
-      Proceed to checkout
-
-     </Button>
-
+      <Button disabled={disabled} className={`bg-green-500 flex-1 ${disabled ? 'hidden' : ''}`}>
+          Go to checkout
+        </Button>
       </DialogTrigger>
       <DialogContent  className="max-w-[425px] md:min-w-[700px] bg-gray-50 ">
         <UserProfileForm 
