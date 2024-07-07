@@ -7,6 +7,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const useGetMyOrders = () => {
   const { getAccessTokenSilently } = useAuth0();
+
   const getMyOrdersRequest = async (): Promise<Order[]> => {
     const accessToken = await getAccessTokenSilently();
 
@@ -22,6 +23,7 @@ export const useGetMyOrders = () => {
 
     return response.json();
   };
+
   const { data: orders, isLoading } = useQuery(
     "fetchMyOrders",
     getMyOrdersRequest,
@@ -33,65 +35,63 @@ export const useGetMyOrders = () => {
   return { orders, isLoading };
 };
 
-
 type CheckoutSessionRequest = {
-    cartItems: {
-      categoryItemId: string;
-      name: string;
-      quantity: string;
-    }[];
-    deliveryDetails: {
-      email: string;
-      name: string;
-      addressLine1: string;
-      city: string;
-    };
-    rentId: string;
+  cartItems: {
+    categoryItemId: string;
+    name: string;
+    quantity: string;
+  }[];
+  deliveryDetails: {
+    email: string;
+    name: string;
+    addressLine1: string;
+    city: string;
   };
+  rentId: string;
+};
 
 export const useCreateCheckoutSession = () => {
-    const { getAccessTokenSilently } = useAuth0();
-  
-    const createCheckoutSessionRequest = async (
-      checkoutSessionRequest: CheckoutSessionRequest
-    ) => {
-      const accessToken = await getAccessTokenSilently();
-  
-      const response = await fetch(`${API_BASE_URL}/api/order/checkout/create-checkout-session`,
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(checkoutSessionRequest),
-        }
-      );
-      console.log('Request URL:', `${API_BASE_URL}/api/order/checkout/create-checkout-session`);
-        console.log('Request Body:', checkoutSessionRequest);
-  
-      if (!response.ok) {
-        throw new Error("Unable to create checkout session");
+  const { getAccessTokenSilently } = useAuth0();
+
+  const createCheckoutSessionRequest = async (
+    checkoutSessionRequest: CheckoutSessionRequest
+  ) => {
+    const accessToken = await getAccessTokenSilently();
+
+    const response = await fetch(
+      `${API_BASE_URL}/api/order/checkout/create-checkout-session`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(checkoutSessionRequest),
       }
-  
-      return response.json();
-    };
-  
-    const {
-      mutateAsync: createCheckoutSession,
-      isLoading,
-      error,
-      reset,
-    } = useMutation(createCheckoutSessionRequest);
-  
-    if (error) {
-      toast.error(error.toString());
-      reset();
-    }
-  
-    return {
-      createCheckoutSession,
-      isLoading,
+    );
+    console.log(response)
+
+    if (!response.ok) {
+      throw new Error("Unable to create checkout session");
     }
 
-}
+    return response.json();
+  };
+
+  const {
+    mutateAsync: createCheckoutSession,
+    isLoading,
+    error,
+    reset,
+  } = useMutation(createCheckoutSessionRequest);
+
+  if (error) {
+    toast.error(error.toString());
+    reset();
+  }
+
+  return {
+    createCheckoutSession,
+    isLoading,
+  };
+};
