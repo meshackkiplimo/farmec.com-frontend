@@ -1,8 +1,7 @@
-// import landingImage from "../assets/landing.png"
-// import appDownloadImage from "../assets/appDownload.jpeg"
+
 import SearchBar, { SearchForm } from "@/components/SearchBar"
 import { useNavigate } from "react-router-dom"
-// import heroImage from "../assets/hero.png"
+
 
 
 const HomePage = () => {
