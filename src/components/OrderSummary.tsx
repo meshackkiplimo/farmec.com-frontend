@@ -2,7 +2,7 @@ import { CartItem } from "@/pages/DetailPage";
 import { Rent } from "@/types";
 import { CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { Separator } from "@radix-ui/react-separator";
+import { Separator } from "./ui/separator";
 import { Trash } from "lucide-react";
 
 type Props = {

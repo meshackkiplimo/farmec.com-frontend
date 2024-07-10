@@ -9,29 +9,23 @@ import ServicesPage from "./pages/ServicesPage";
 import AboutPage from "./pages/AboutPage";
 import SearchPage from './pages/SearchPage';
 import DetailPage from "./pages/DetailPage";
+import OrderStatusPage from "./pages/OrderStatusPage";
 
 const AppRoutes = () => {
     return (
         <Routes>
-
             <Route path="/" element={<Layout showHero><HomePage /></Layout>} />
-
             <Route path="/auth-callback" element={<AuthCallbackPage />} />
-            <Route path= "/search/:city" element={
-                <Layout showHero={false}>
-                <SearchPage />
-            </Layout>
-            } 
-            />
-            <Route path= "/detail/:rentId" element={
-                <Layout showHero={false}>
-                <DetailPage />
-            </Layout>
-            } 
-            />
-            <Route path="/services" element={<Layout showHero><ServicesPage /></Layout>} />
-            <Route path="/about" element={<Layout showHero><AboutPage /></Layout>} />
+            <Route path= "/search/:city" element={<Layout showHero={false}><SearchPage /></Layout>} />
+            <Route path= "/detail/:rentId" element={<Layout showHero={false}> <DetailPage /> </Layout>} />
+            <Route path="/services" element={<Layout showHero={true}><ServicesPage /></Layout>} />
+            <Route path="/about" element={<Layout showHero={true}><AboutPage /></Layout>} />
             <Route element={<ProtectedRoute />}>
+            <Route
+                    path="/order-status" element={
+                        <Layout >
+                            <OrderStatusPage />
+                        </Layout>} />
                 <Route
                     path="/user-profile" element={
                         <Layout >
