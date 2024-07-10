@@ -52,7 +52,7 @@ type CheckoutSessionRequest = {
 
 
 
-<<<<<<< HEAD
+
   export const useCreateCheckoutSession = () => {
     const { getAccessTokenSilently } = useAuth0();
   
@@ -97,50 +97,3 @@ type CheckoutSessionRequest = {
       isLoading,
     };
   };
-=======
-export const useCreateCheckoutSession = () => {
-  const { getAccessTokenSilently } = useAuth0();
-
-  const createCheckoutSessionRequest = async (
-    checkoutSessionRequest: CheckoutSessionRequest
-  ) => {
-    const accessToken = await getAccessTokenSilently();
-
-    const response = await fetch(
-      `${API_BASE_URL}/api/order/checkout/create-checkout-session`,
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(checkoutSessionRequest),
-      }
-    );
-    console.log(response)
-
-    if (!response.ok) {
-      throw new Error("Unable to create checkout session");
-    }
-
-    return response.json();
-  };
-
-  const {
-    mutateAsync: createCheckoutSession,
-    isLoading,
-    error,
-    reset,
-  } = useMutation(createCheckoutSessionRequest);
-
-  if (error) {
-    toast.error(error.toString());
-    reset();
-  }
-
-  return {
-    createCheckoutSession,
-    isLoading,
-  };
-};
->>>>>>> 3b15a12a275b591455e50528443d2193c2903d68
