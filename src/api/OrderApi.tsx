@@ -49,10 +49,6 @@ type CheckoutSessionRequest = {
   };
   rentId: string;
 };
-
-
-
-
   export const useCreateCheckoutSession = () => {
     const { getAccessTokenSilently } = useAuth0();
   
