@@ -36,7 +36,7 @@ export const useCreateMyRent = () => {
   const { getAccessTokenSilently } = useAuth0();
 
   const createMyRentRequest = async (
-    RentFormData: FormData
+    rentFormData: FormData
   ): Promise<Rent> => {
     const accessToken = await getAccessTokenSilently();
 
@@ -45,7 +45,7 @@ export const useCreateMyRent = () => {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
-      body: RentFormData,
+      body: rentFormData,
     });
 
     if (!response.ok) {
@@ -67,7 +67,7 @@ export const useCreateMyRent = () => {
   }
 
   if (error) {
-    toast.error("Unable to update Rent");
+    toast.error("Unable to update rent");
   }
 
   return { createRent, isLoading };
@@ -77,7 +77,7 @@ export const useUpdateMyRent = () => {
   const { getAccessTokenSilently } = useAuth0();
 
   const updateRentRequest = async (
-    RentFormData: FormData
+    restaurantFormData: FormData
   ): Promise<Rent> => {
     const accessToken = await getAccessTokenSilently();
 
@@ -86,24 +86,15 @@ export const useUpdateMyRent = () => {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
-      body: RentFormData,
+      body: restaurantFormData,
     });
 
     if (!response) {
       throw new Error("Failed to update rent");
     }
 
-<<<<<<< HEAD
-          const response = await fetch(`${API_BASE_URL}/api/my/rent`,{
-            method:"POST",
-            headers:{
-              'Authorization':`Bearer ${accessToken}`
-            },
-            body:rentFormData,
-=======
     return response.json();
   };
->>>>>>> 3b15a12a275b591455e50528443d2193c2903d68
 
   const {
     mutate: updateRent,
@@ -144,7 +135,7 @@ export const useGetMyRentOrders = () => {
   };
 
   const { data: orders, isLoading } = useQuery(
-    "fetchMyRentOrders",
+    "fetchMyRestaurantOrders",
     getMyRentOrdersRequest
   );
 
