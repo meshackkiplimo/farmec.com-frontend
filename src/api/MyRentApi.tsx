@@ -93,8 +93,17 @@ export const useUpdateMyRent = () => {
       throw new Error("Failed to update rent");
     }
 
+<<<<<<< HEAD
+          const response = await fetch(`${API_BASE_URL}/api/my/rent`,{
+            method:"POST",
+            headers:{
+              'Authorization':`Bearer ${accessToken}`
+            },
+            body:rentFormData,
+=======
     return response.json();
   };
+>>>>>>> 3b15a12a275b591455e50528443d2193c2903d68
 
   const {
     mutate: updateRent,

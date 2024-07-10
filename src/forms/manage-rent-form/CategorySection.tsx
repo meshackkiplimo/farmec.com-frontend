@@ -16,7 +16,7 @@ const CategorySection = () => {
             <h2 text-2xl font-bold>Category</h2>
             <FormDescription>
 
-                create your category and give each machine  aprice
+                create your category and give each machine  a price
             </FormDescription>
         </div>
         <FormField control={control} name="CategoryItems" render={() =>(

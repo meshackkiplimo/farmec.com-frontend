@@ -1,8 +1,7 @@
-<<<<<<< HEAD
-=======
+
+
 import { useState } from "react";
 import { sendContactUsRequest } from '../api/ContactUs'
->>>>>>> 4d29a34387e4933440a1d0f4bf821e20e7a78317
 
 const AboutPage = () => {
   const [contactUsDetails, setContactUsDetails] = useState({})

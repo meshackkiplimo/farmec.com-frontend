@@ -119,7 +119,7 @@ const DetailPage = () => {
       <div className="grid md:grid-cols-[4fr_2fr] gap-5 md:px-32">
         <div className="flex flex-col gap-4">
           <RentInfo rent={rent} />
-          <span className="text-2xl font-bold tracking-tight">Menu</span>
+          <span className="text-2xl font-bold tracking-tight">Category</span>
           {rent.categoryItems.map((categoryItem) => (
             <CategoryItem
               categoryItem={categoryItem}
@@ -137,9 +137,12 @@ const DetailPage = () => {
             />
             <CardFooter>
               <CheckoutButton
-                disabled={cartItems.length === 0}
-                onCheckout={onCheckout}
-                isLoading={isCheckoutLoading}
+               
+                   disabled={cartItems.length === 0}
+                
+                   onCheckout={onCheckout}
+                
+                   isLoading={isCheckoutLoading}
               />
             </CardFooter>
           </Card>
