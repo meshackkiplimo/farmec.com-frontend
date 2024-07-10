@@ -67,7 +67,7 @@ export const useCreateMyRent = () => {
   }
 
   if (error) {
-    toast.error("Unable to update Rrnt");
+    toast.error("Unable to update Rent");
   }
 
   return { createRent, isLoading };
