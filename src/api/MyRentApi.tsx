@@ -77,7 +77,7 @@ export const useUpdateMyRent = () => {
   const { getAccessTokenSilently } = useAuth0();
 
   const updateRentRequest = async (
-    restaurantFormData: FormData
+    rentFormData: FormData
   ): Promise<Rent> => {
     const accessToken = await getAccessTokenSilently();
 
@@ -86,7 +86,7 @@ export const useUpdateMyRent = () => {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
-      body: restaurantFormData,
+      body: rentFormData,
     });
 
     if (!response) {
@@ -135,7 +135,7 @@ export const useGetMyRentOrders = () => {
   };
 
   const { data: orders, isLoading } = useQuery(
-    "fetchMyRestaurantOrders",
+    "fetchMyRentOrders",
     getMyRentOrdersRequest
   );
 
