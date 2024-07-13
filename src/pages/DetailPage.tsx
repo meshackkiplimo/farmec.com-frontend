@@ -6,7 +6,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Card, CardFooter } from "@/components/ui/card";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import {CategoryItem as CategoryItemType } from "../types";
+import { CategoryItem as CategoryItemType } from "../types";
 import CheckoutButton from "@/components/CheckoutButton";
 import { UserFormData } from "@/forms/user-profile-form/UserProfileForm";
 import { useCreateCheckoutSession } from "@/api/OrderApi";
@@ -119,7 +119,7 @@ const DetailPage = () => {
       <div className="grid md:grid-cols-[4fr_2fr] gap-5 md:px-32">
         <div className="flex flex-col gap-4">
           <RentInfo rent={rent} />
-          <span className="text-2xl font-bold tracking-tight">Category</span>
+          <span className="text-2xl font-bold tracking-tight">Machines</span>
           {rent.categoryItems.map((categoryItem) => (
             <CategoryItem
               categoryItem={categoryItem}
@@ -137,12 +137,9 @@ const DetailPage = () => {
             />
             <CardFooter>
               <CheckoutButton
-               
-                   disabled={cartItems.length === 0}
-                
-                   onCheckout={onCheckout}
-                
-                   isLoading={isCheckoutLoading}
+                disabled={cartItems.length === 0}
+                onCheckout={onCheckout}
+                isLoading={isCheckoutLoading}
               />
             </CardFooter>
           </Card>
