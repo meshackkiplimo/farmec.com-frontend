@@ -39,11 +39,13 @@ export const useCreateMyRent = () => {
     rentFormData: FormData
   ): Promise<Rent> => {
     const accessToken = await getAccessTokenSilently();
+    console.log('MY RENT',rentFormData)
 
     const response = await fetch(`${API_BASE_URL}/api/my/rent`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${accessToken}`,
+
       },
       body: rentFormData,
     });

@@ -20,7 +20,7 @@ const MobileNav = () => {
                         <CircleUserRound className="text-green-500" />
                         {user?.email}
                      </span> ):(
-                         <span>welcome to Farmech.com</span>
+                         <span>welcome to Farmec.com</span>
                         )}
 
 

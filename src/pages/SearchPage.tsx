@@ -104,7 +104,7 @@ const SearchPage = () => {
       <SearchBar 
       searchQuery = {searchState.searchQuery}
       onsubmit={setSearchQuery} 
-      placeHolder="search by Machine oor Rent Name" 
+      placeHolder="search by Machine or Rent Name" 
       onReset = {resetSearch}
       
       />
