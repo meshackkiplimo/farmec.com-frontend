@@ -40,7 +40,7 @@ const SearchResultCard = ({rent}: Props) => {
                 <div className="flex items-center gap-1" >
 
                     <Banknote  />
-                    Delivery from ${(rent.deliveryPrice / 100).toFixed(2)}
+                    Delivery from kes{(rent.deliveryPrice /100 ).toFixed(2)}
                 </div>
             </div>
 

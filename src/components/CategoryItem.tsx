@@ -19,7 +19,7 @@ const CategoryItem = ({categoryItem,addToCart}: Props) => {
             </CardHeader>
             <CardContent className="font-bold">
 
-                ${(categoryItem.price / 100).toFixed(2)}
+                kes{(categoryItem.price /100).toFixed(2)}
                 
             </CardContent>
 
