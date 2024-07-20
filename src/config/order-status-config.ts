@@ -10,7 +10,7 @@ type OrderStatusInfo = {
 export const ORDER_STATUS: OrderStatusInfo[] = [
   { label: "Placed", value: "placed", progressValue: 0,status:"not taken" },
   {
-    label: "Awaiting Rent Confirmation",
+    label: "Awaiting  Enterprise Return",
     value: "paid",
     progressValue: 25,
     status:"not taken"

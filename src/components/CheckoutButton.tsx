@@ -46,7 +46,7 @@ if(isAuthLoading || !currentUser || isLoading){
    return(
     <Dialog>
       <DialogTrigger  asChild>
-      <Button disabled={disabled} className={`bg-green-500 flex-1 ${disabled ? 'hidden' : ''}`}>
+      <Button disabled={disabled} className="bg-green-500 flex-1">
           Go to checkout
         </Button>
       </DialogTrigger>
