@@ -46,6 +46,7 @@ type CheckoutSessionRequest = {
     name: string;
     addressLine1: string;
     city: string;
+    phoneNumber:string;
   };
   rentId: string;
 };

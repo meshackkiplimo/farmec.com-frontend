@@ -3,7 +3,8 @@ export type User ={
     email:string
     addressLine1:string
     city:string
-    country:string
+    county:string
+    phoneNumber:string
 }
 export type CategoryItem = {
     _id: string;
@@ -16,7 +17,7 @@ export type Rent = {
     user: string;
     rentName: string;
     city: string;
-    country: string;
+    county: string;
     deliveryPrice: number;
     estimatedDeliveryTime: number;
     machines: string[];
@@ -48,6 +49,8 @@ export type Order = {
     addressLine1: string;
     city: string;
     email: string;
+    county: string;
+    phoneNumber: string;
   };
   totalAmount: number;
   status: OrderStatus;

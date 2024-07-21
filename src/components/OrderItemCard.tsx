@@ -56,7 +56,7 @@ const OrderItemCard = ({ order }: Props) => {
           <div>
             Customer Name:
             <span className="ml-2 font-normal">
-              {order.deliveryDetails.name}
+              {order.deliveryDetails.name},{order.deliveryDetails.phoneNumber}
             </span>
           </div>
           <div>

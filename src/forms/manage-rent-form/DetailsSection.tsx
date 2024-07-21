@@ -35,9 +35,9 @@ const DetailsSection = () => {
 
          <FormMessage/>
       </FormItem>)} />
-      <FormField control={control} name="country" render={({ field })=>(
+      <FormField control={control} name="county" render={({ field })=>(
       <FormItem className="flex-1">
-         <FormLabel>Country</FormLabel>
+         <FormLabel>County</FormLabel>
          <FormControl>
             <Input {...field} className="bg-white" />
          </FormControl>

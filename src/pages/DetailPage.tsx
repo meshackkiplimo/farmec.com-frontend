@@ -89,14 +89,16 @@ const DetailPage = () => {
         categoryItemId: cartItem._id,
         name: cartItem.name,
         quantity: cartItem.quantity.toString(),
+
       })),
       rentId: rent._id,
       deliveryDetails: {
         name: userFormData.name,
         addressLine1: userFormData.addressLine1,
         city: userFormData.city,
-        country: userFormData.country,
+        county: userFormData.county,
         email: userFormData.email as string,
+        phoneNumber:userFormData.phoneNumber,
       },
     };
 

@@ -21,8 +21,12 @@ const formSchema = z.object({
   name: z.string().min(1, "name is required"),
   addressLine1: z.string().min(1, "Address Line 1 is required"),
   city: z.string().min(1, "City is required"),
-  country: z.string().min(1, "Country is required"),
+  county: z.string().min(1, "County is required"),
+  phoneNumber: z.string().min(1, "Phone is required")
+   
 });
+
+
 
 export type UserFormData = z.infer<typeof formSchema>;
 
@@ -74,8 +78,10 @@ const UserProfileForm = ({
             </FormItem>
           )}
         />
+  <div className="flex flex-col md:flex-row gap-20">
 
-        <FormField
+
+  <FormField
           control={form.control}
           name="name"
           render={({ field }) => (
@@ -88,7 +94,22 @@ const UserProfileForm = ({
             </FormItem>
           )}
         />
+<FormField
+          control={form.control}
+          name="phoneNumber"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>PhoneNumber</FormLabel>
+              <FormControl>
+                <Input {...field} className="bg-white" />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
+  </div>
+        
         <div className="flex flex-col md:flex-row gap-4">
           <FormField
             control={form.control}
@@ -118,10 +139,10 @@ const UserProfileForm = ({
           />
           <FormField
             control={form.control}
-            name="country"
+            name="county"
             render={({ field }) => (
               <FormItem className="flex-1">
-                <FormLabel>Country</FormLabel>
+                <FormLabel>County</FormLabel>
                 <FormControl>
                   <Input {...field} className="bg-white" />
                 </FormControl>

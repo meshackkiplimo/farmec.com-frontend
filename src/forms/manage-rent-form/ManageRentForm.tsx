@@ -20,8 +20,8 @@ const formSchema = z
     city: z.string({
       required_error: "city is required",
     }),
-    country: z.string({
-      required_error: "country is required",
+    county: z.string({
+      required_error: "county is required",
     }),
     deliveryPrice: z.coerce.number({
       required_error: "delivery price is required",
@@ -94,7 +94,7 @@ const ManageRentForm = ({ onSave, isLoading, rent }: Props) => {
 
     formData.append("rentName", formDataJson.rentName);
     formData.append("city", formDataJson.city);
-    formData.append("country", formDataJson.country);
+    formData.append("county", formDataJson.county);
 
     formData.append(
       "deliveryPrice",

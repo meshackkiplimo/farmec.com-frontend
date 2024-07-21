@@ -79,7 +79,8 @@ type updateMyUserRequest = {
     name:string
     addressLine1:string
     city:string
-    country:string
+    county:string
+    phoneNumber:string
 
 }
 
