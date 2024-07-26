@@ -16,7 +16,7 @@ const CategorySection = () => {
       <div>
         <h2 className="text-2xl font-bold">Menu</h2>
         <FormDescription>
-          Create your menu and give each item a name and a price
+          Fill in the machines available and give each mcahine a name and a price
         </FormDescription>
       </div>
       <FormField

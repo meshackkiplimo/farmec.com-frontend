@@ -19,7 +19,7 @@ const RentInfo = ({rent}: Props) => {
                     {rent.rentName}
                </CardTitle>
                <CardDescription>
-                {rent.city},{rent.county}
+                {rent.town},{rent.county}
                </CardDescription>
             </CardHeader>
             <CardContent className="flex">

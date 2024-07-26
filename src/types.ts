@@ -1,8 +1,10 @@
 export type User ={
     _id:string
     email:string
-    addressLine1:string
-    city:string
+    firstName:string
+    lastName:string
+    address:string
+    town:string
     county:string
     phoneNumber:string
 }
@@ -16,7 +18,7 @@ export type Rent = {
     _id: string;
     user: string;
     rentName: string;
-    city: string;
+    town: string;
     county: string;
     deliveryPrice: number;
     estimatedDeliveryTime: number;
@@ -45,9 +47,10 @@ export type Order = {
     quantity: string;
   }[];
   deliveryDetails: {
-    name: string;
-    addressLine1: string;
-    city: string;
+    firstName: string;
+    lastName: string;
+    address: string;
+    town: string;
     email: string;
     county: string;
     phoneNumber: string;

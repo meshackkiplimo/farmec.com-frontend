@@ -18,7 +18,7 @@ export type SearchState = {
 }
 
 const SearchPage = () => {
-  const {city} = useParams()
+  const {town} = useParams()
   const [searchState,setSearchState] = useState<SearchState>({
     searchQuery:  "",
     page:1,
@@ -26,7 +26,7 @@ const SearchPage = () => {
     sortOption:"bestMatch",
   })
   const [isExpanded,setIsExpanded] = useState<boolean>(false)
-  const {results, isLoading} = useSearchRents(searchState,city)
+  const {results, isLoading} = useSearchRents(searchState,town)
 
   const setSortOption = (sortOption:string) =>{
     setSearchState((prevState)=>({
@@ -80,10 +80,10 @@ const SearchPage = () => {
 
   
   if(isLoading){
-    <span>loading....</span>
+    <span>Loading....</span>
   }
 
-  if(!results?.data || !city){
+  if(!results?.data || !town){
     return <span>No results found</span>
   }
 
@@ -109,7 +109,7 @@ const SearchPage = () => {
       
       />
       <div className="flex justify-between flex-col gap-3 lg:flex-row">
-      <SearchResultInfo total={results.pagination.total} city={city} />
+      <SearchResultInfo total={results.pagination.total} town={town} />
       <SortOptionDropdown sortOption={searchState.sortOption} onChange={(value)=>setSortOption(value)} />
       </div>
 

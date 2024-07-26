@@ -17,12 +17,14 @@ import { User } from "@/types";
 import { useEffect } from "react";
 
 const formSchema = z.object({
-  email: z.string().optional(),
-  name: z.string().min(1, "name is required"),
-  addressLine1: z.string().min(1, "Address Line 1 is required"),
-  city: z.string().min(1, "City is required"),
+ 
+  firstName: z.string().min(1, "firstName is required"),
+  lastName: z.string().min(1, "lastName is required"),
+  address: z.string().min(1, "Address  is required"),
+  town: z.string().min(1, "town is required"),
   county: z.string().min(1, "County is required"),
-  phoneNumber: z.string().min(1, "Phone is required")
+  phoneNumber: z.string().min(1, "Phone is required"),
+  email: z.string().optional(),
    
 });
 
@@ -42,8 +44,8 @@ const UserProfileForm = ({
   onSave,
   isLoading,
   currentUser,
-  title = "User Profile",
-  buttonText = "Submit",
+  title = "Personal Information",
+  buttonText = "Confirm",
 }: Props) => {
   const form = useForm<UserFormData>({
     resolver: zodResolver(formSchema),
@@ -58,35 +60,24 @@ const UserProfileForm = ({
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSave)}
-        className="space-y-4 bg-gray-50 rounded-lg md:p-10"
+        className="space-y-4 bg-green-500 rounded-lg md:p-10"
       >
         <div>
           <h2 className="text-2xl font-bold">{title}</h2>
           <FormDescription>
-            View and change your profile information here
+            details
           </FormDescription>
         </div>
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input {...field} disabled className="bg-white" />
-              </FormControl>
-            </FormItem>
-          )}
-        />
+        
   <div className="flex flex-col md:flex-row gap-20">
 
 
   <FormField
           control={form.control}
-          name="name"
+          name="firstName"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>First Name</FormLabel>
               <FormControl>
                 <Input {...field} className="bg-white" />
               </FormControl>
@@ -95,6 +86,21 @@ const UserProfileForm = ({
           )}
         />
 <FormField
+          control={form.control}
+          name="lastName"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Last Name</FormLabel>
+              <FormControl>
+                <Input {...field} className="bg-white" />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+  </div>
+  <FormField
           control={form.control}
           name="phoneNumber"
           render={({ field }) => (
@@ -107,16 +113,14 @@ const UserProfileForm = ({
             </FormItem>
           )}
         />
-
-  </div>
         
-        <div className="flex flex-col md:flex-row gap-4">
+       
           <FormField
             control={form.control}
-            name="addressLine1"
+            name="address"
             render={({ field }) => (
               <FormItem className="flex-1">
-                <FormLabel>Address Line 1</FormLabel>
+                <FormLabel>Address </FormLabel>
                 <FormControl>
                   <Input {...field} className="bg-white" />
                 </FormControl>
@@ -126,10 +130,10 @@ const UserProfileForm = ({
           />
           <FormField
             control={form.control}
-            name="city"
+            name="town"
             render={({ field }) => (
               <FormItem className="flex-1">
-                <FormLabel>City</FormLabel>
+                <FormLabel>town</FormLabel>
                 <FormControl>
                   <Input {...field} className="bg-white" />
                 </FormControl>
@@ -150,11 +154,24 @@ const UserProfileForm = ({
               </FormItem>
             )}
           />
-        </div>
+          
+        
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Email</FormLabel>
+              <FormControl>
+                <Input {...field} disabled className="bg-white" />
+              </FormControl>
+            </FormItem>
+          )}
+        />
         {isLoading ? (
           <LoadingButton />
         ) : (
-          <Button type="submit" className="bg-green-500">
+          <Button type="submit" className="bg-gray-500 hover:bg-blue-800">
             {buttonText}
           </Button>
         )}

@@ -14,7 +14,7 @@ const MachinesSection = () => {
             <h2 className="text-2xl font-bold">Machines</h2>
             <FormDescription>
 
-                Select the machines that are available
+                Select the machines that are ready for Renting Out
             </FormDescription>
         </div>
 

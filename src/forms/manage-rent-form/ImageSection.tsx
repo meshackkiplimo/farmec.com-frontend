@@ -10,11 +10,11 @@ const ImageSection = () => {
   return(
     <div className="space-y-2">
         <div>
-            <h2 className="text-2xl font-bold">
+            <h2 className="text-2xl font-bold bg-gray-500">
         Image
             </h2>
             <FormDescription>
-                Add an image to your product
+              Display your branch
             </FormDescription>
         </div>
         <div className="flex flex-col gap-8 md:w-[50%]"> 

@@ -93,9 +93,10 @@ const DetailPage = () => {
       })),
       rentId: rent._id,
       deliveryDetails: {
-        name: userFormData.name,
-        addressLine1: userFormData.addressLine1,
-        city: userFormData.city,
+        firstName: userFormData.firstName,
+        lastName: userFormData.lastName,
+        address: userFormData.address,
+        town: userFormData.town,
         county: userFormData.county,
         email: userFormData.email as string,
         phoneNumber:userFormData.phoneNumber,

@@ -8,8 +8,10 @@ import ManageRentPage from "./pages/ManageRentPage";
 import ServicesPage from "./pages/ServicesPage";
 import AboutPage from "./pages/AboutPage";
 import SearchPage from "./pages/SearchPage";
+import RentPage from "./pages/RentPage"
 import DetailPage from "./pages/DetailPage";
 import OrderStatusPage from "./pages/OrderStatusPage";
+import BookPage  from "./pages/BookPage";
 
 const AppRoutes = () => {
   return (
@@ -24,7 +26,7 @@ const AppRoutes = () => {
       />
       <Route path="/auth-callback" element={<AuthCallbackPage />} />
       <Route
-        path="/search/:city"
+        path="/search/:town"
         element={
           <Layout showHero={false}>
             <SearchPage />
@@ -43,7 +45,7 @@ const AppRoutes = () => {
       <Route
         path="/services"
         element={
-          <Layout showHero={true}>
+          <Layout >
             <ServicesPage />
           </Layout>
         }
@@ -51,7 +53,7 @@ const AppRoutes = () => {
       <Route
         path="/about"
         element={
-          <Layout showHero={true}>
+          <Layout >
             <AboutPage />
           </Layout>
         }
@@ -79,6 +81,24 @@ const AppRoutes = () => {
             <Layout>
               <ManageRentPage />
             </Layout>
+          }
+        />
+         <Route
+          path="/rent"
+          element={
+            <Layout>
+              <RentPage />
+            </Layout>
+
+          }
+        />
+         <Route
+          path="/book"
+          element={
+            <Layout>
+              <BookPage />
+            </Layout>
+            
           }
         />
       </Route>

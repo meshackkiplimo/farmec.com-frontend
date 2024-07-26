@@ -8,7 +8,7 @@ const OrderStatusPage = () => {
   const { orders, isLoading } = useGetMyOrders();
 
   if (isLoading) {
-    return "Loading...";
+    return "Proccessing...";
   }
 
   if (!orders || orders.length === 0) {

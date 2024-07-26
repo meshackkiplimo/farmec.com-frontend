@@ -42,7 +42,7 @@ const CategoryItemInput = ({ index, removeCategoryItem }: Props) => {
         name={`categoryItems.${index}.price`}
         render={({ field }) => (
           <FormItem>
-            <FormLabel className="flex items-center gap-1">
+            <FormLabel className="flex items-center gap-3">
               Price (kes) <FormMessage />
             </FormLabel>
             <FormControl>
@@ -54,7 +54,7 @@ const CategoryItemInput = ({ index, removeCategoryItem }: Props) => {
       <Button
         type="button"
         onClick={removeCategoryItem}
-        className="bg-red-500 max-h-fit"
+        className="bg-red-900 max-h-fit"
       >
         Remove
       </Button>

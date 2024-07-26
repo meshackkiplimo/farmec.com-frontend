@@ -11,8 +11,8 @@ const MainNav = () => {
     <span className="flex space-x-4 items-center ">
       {isAuthenticated ? (
         <>
-        <Link to="/search/:city" className="font-bold hover:text-green-500">
-            Rent 
+        <Link to="/rent" className="font-bold hover:text-green-500">
+            Explore
           </Link>
         <Link to="/services" className="font-bold hover:text-green-500">
             Services
@@ -23,6 +23,9 @@ const MainNav = () => {
 
           <Link to="/order-status" className="font-bold hover:text-green-500">
             Order Status
+          </Link>
+          <Link to="/book" className="font-bold hover:text-green-500">
+            Rent
           </Link>
           
           <UsernameMenu />

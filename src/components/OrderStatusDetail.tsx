@@ -10,9 +10,9 @@ const OrderStatusDetail = ({ order }: Props) => {
     <div className="space-y-5">
       <div className="flex flex-col">
         <span className="font-bold">Delivering to:</span>
-        <span>{order.deliveryDetails.name},{order.deliveryDetails.phoneNumber}</span>
+        <span>{order.deliveryDetails.firstName},{order.deliveryDetails.lastName},{order.deliveryDetails.phoneNumber}</span>
         <span>
-          {order.deliveryDetails.addressLine1}, {order.deliveryDetails.city}
+          {order.deliveryDetails.address}, {order.deliveryDetails.town}
         </span>
       </div>
       <div className="flex flex-col">

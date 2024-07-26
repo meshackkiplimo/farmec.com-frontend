@@ -17,8 +17,8 @@ const formSchema = z
     rentName: z.string({
       required_error: "rent name is required",
     }),
-    city: z.string({
-      required_error: "city is required",
+    town: z.string({
+      required_error: "town is required",
     }),
     county: z.string({
       required_error: "county is required",
@@ -93,7 +93,7 @@ const ManageRentForm = ({ onSave, isLoading, rent }: Props) => {
     const formData = new FormData();
 
     formData.append("rentName", formDataJson.rentName);
-    formData.append("city", formDataJson.city);
+    formData.append("town", formDataJson.town);
     formData.append("county", formDataJson.county);
 
     formData.append(
