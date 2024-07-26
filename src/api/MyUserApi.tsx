@@ -83,7 +83,7 @@ type updateMyUserRequest = {
     town:string
     county:string
     phoneNumber:string
-    email:string;
+    
 
 }
 

@@ -27,7 +27,7 @@ const formSchema = z.object({
   email: z.string().optional(),
    
 });
-
+8
 
 
 export type UserFormData = z.infer<typeof formSchema>;
@@ -45,7 +45,7 @@ const UserProfileForm = ({
   isLoading,
   currentUser,
   title = "Personal Information",
-  buttonText = "Confirm",
+  buttonText = "Submit",
 }: Props) => {
   const form = useForm<UserFormData>({
     resolver: zodResolver(formSchema),
