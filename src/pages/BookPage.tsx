@@ -1,4 +1,4 @@
-import React from 'react';
+
 import SearchBar, { SearchForm } from "@/components/SearchBar";
 import { useNavigate } from "react-router-dom";
 import kisumuImage from "../assets/kisumu.jpg"; // Make sure to update the path to your image
