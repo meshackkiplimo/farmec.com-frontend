@@ -20,10 +20,10 @@ const BookPage = () => {
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="relative md:px-32 bg-white bg-opacity-90 rounded-lg shadow-md py-8 flex flex-col gap-5 text-center -mt-16">
         <h1 className="text-5xl font-bold tracking-tight text-green-600">
-          Machines for your choice
+          Rent your machine Today
         </h1>
         <span className="text-xl">
-          Rent your machine today by searching in the towns below
+          Search Hear According to your nearest Town
         </span>
       </div>
 
