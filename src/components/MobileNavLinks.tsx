@@ -8,6 +8,22 @@ const MobileNavLinks = () => {
   return (
 
     <>
+     <Link
+     to= "/book" 
+     
+     className="flex bg-white items-center font-bold hover:text-green-500"
+     >
+
+        Rent
+     </Link>
+    <Link
+     to= "/rent" 
+     
+     className="flex bg-white items-center font-bold hover:text-green-500"
+     >
+
+        Explore
+     </Link>
     <Link
      to= "/services" 
      
